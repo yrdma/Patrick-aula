@@ -1,0 +1,15 @@
+name: Pipeline teste
+
+on:
+    push:
+        branches:
+              - dev
+
+
+jobs: 
+    biuld:
+        runs-on: [self-hosted, linux, x64]
+
+  steps:
+      - name: Checkout index 
+       run: test -f index.html              
