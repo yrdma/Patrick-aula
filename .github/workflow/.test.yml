@@ -1,15 +1,14 @@
-name: Pipeline teste
+name: CI (Vite React)
 
 on:
-    push:
-        branches:
-              - dev
+  push:
+    branches:
+      - dev
 
+jobs:
+  build:
+    runs-on: [self-hosted, linux, x64]
 
-jobs: 
-    biuld:
-        runs-on: [self-hosted, linux, x64]
-
-  steps:
-      - name: Checkout index  
-        run: test -f index.html               
+    steps:
+      - name: Checkout index
+        run: test -f index.html
