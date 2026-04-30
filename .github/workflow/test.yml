@@ -1,0 +1,23 @@
+name: CI (Vite React)
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  validar-dev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout index
+        uses: actions/checkout@v3
+
+      - name: Verificar se existe pelo menos um HTML
+        run: |
+          if find . -name "*.html" | grep -q .; then
+            echo "Arquivos HTML encontrados com sucesso."
+          else
+            echo "Nenhum arquivo HTML encontrado."
+            exit 1
+          fi
